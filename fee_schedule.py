@@ -71,4 +71,10 @@ class fee_schedule:
                 return Decimal(std.base + (AID - std.lower_range) * std.rate).quantize(
                     Decimal("0.00")
                 )
-        return Exception("Cannot find rate!")
+        return Decimal(self.base).quantize(Decimal('0.00'))
+    
+    def fcalc(self, AID: Union[int, float]) -> float:
+        for std in self.fee_std:
+            if std.lower_range < AID and std.upper_range >= AID:
+                return std.base + (AID - std.lower_range) * std.rate
+        return self.base
