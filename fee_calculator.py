@@ -1,6 +1,8 @@
 from fee_schedule import fee_schedule as fs
 import toml
 
+__all__ = []
+
 with open("fee.toml", "r", encoding="utf8") as f:
     sd = toml.load(f)
 
@@ -30,3 +32,4 @@ for key, std in sd.items():
 
     func.__name__ = func_name
     globals()[func_name] = func
+    __all__.append(func_name)
