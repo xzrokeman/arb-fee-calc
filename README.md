@@ -1,3 +1,3 @@
 # arb-fee-calc
-Arbitration Fee Calculation Moduel
+Arbitration Fee Calculation Module
 ## A streamlit instance
